@@ -11,5 +11,7 @@ printList([Head | Tail]) ->
 main(Numbers) ->
 	Transformed = map(fun(X) -> X * 2 end, Numbers),
 	io:fwrite("The transformed list: ~n"),
-	printList(Transformed).	
+	printList(Transformed),
+	SumOfElements = foldl(fun(Element, Accumulator) -> Accumulator + Element end, 0, Transformed),
+	io:fwrite("The sum of the elements: ~w~n", [SumOfElements]).
 
